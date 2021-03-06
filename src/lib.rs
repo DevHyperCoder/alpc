@@ -1,7 +1,7 @@
 mod constants;
 
-use std::io::stdin;
 use constants::get_terms;
+use std::io::stdin;
 
 pub fn run() {
     println!("ALPC");
@@ -12,14 +12,14 @@ pub fn run() {
 
     stdin().read_line(&mut input_str).unwrap();
 
-    println!("Converting: {}",input_str);
+    println!("Converting: {}", input_str);
 
     let result = parse(input_str);
 
-    println!("{:?}",result);
+    println!("{:?}", result);
 }
 
-fn parse(input:String) -> Vec<String>{
+pub fn parse(input: String) -> Vec<String> {
     let input = input.to_ascii_uppercase();
     let mut result = Vec::new();
 
@@ -27,23 +27,25 @@ fn parse(input:String) -> Vec<String>{
     for c in input.chars() {
         // Space to newline
         if c == ' ' {
-            result.push(format!("{}","\n"));
+            result.push(format!("{}", "\n"));
             continue;
         }
 
-        if !c.is_alphabetic(){
-            result.push(format!("{} ",c));
+        if !c.is_alphabetic() {
+            result.push(format!("{} ", c));
             continue;
         }
 
         let index = c as usize;
 
-        if index < 65 {continue; }
+        if index < 65 {
+            continue;
+        }
 
         // ASCI reper to array index
         let index = index - 65;
 
-        result.push(format!("{} ",get_terms()[index]));
+        result.push(format!("{} ", get_terms()[index]).to_ascii_uppercase());
     }
     result
 }
