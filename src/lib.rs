@@ -1,6 +1,6 @@
 mod constants;
 
-use constants::get_terms;
+use constants::*;
 use std::io::stdin;
 
 pub fn run() {
@@ -28,6 +28,13 @@ pub fn parse(input: String) -> Vec<String> {
         // Space to newline
         if c == ' ' {
             result.push(format!("{}", "\n"));
+            continue;
+        }
+
+        if c.is_digit(10) {
+            let num = c.to_digit(10).unwrap() as usize;
+
+            result.push(format!("{} ", get_numbers()[num]).to_ascii_uppercase());
             continue;
         }
 
