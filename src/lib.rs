@@ -20,17 +20,11 @@ pub fn run() {
 }
 
 pub fn parse(input: String) -> Vec<String> {
-    let input = input.to_ascii_uppercase();
+    let input = input;
     let mut result = Vec::new();
 
     // Loop through chars ; Append to result vector
     for c in input.chars() {
-        // Space to newline
-        if c == ' ' {
-            result.push(format!("{}", "\n"));
-            continue;
-        }
-
         if c.is_digit(10) {
             let num = c.to_digit(10).unwrap() as usize;
 
@@ -39,7 +33,12 @@ pub fn parse(input: String) -> Vec<String> {
         }
 
         if !c.is_alphabetic() {
-            result.push(format!("{} ", c));
+            result.push(format!("{}", c));
+            continue;
+        }
+
+        if c.is_lowercase() {
+            result.push(format!("{}", c));
             continue;
         }
 
