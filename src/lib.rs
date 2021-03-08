@@ -30,7 +30,9 @@ pub fn run() {
 
     let result = parse(input_str);
 
-    println!("{:?}", result);
+    for i in result {
+        print!("{}", i);
+    }
 }
 
 pub fn parse(input: String) -> Vec<String> {
