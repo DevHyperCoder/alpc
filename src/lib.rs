@@ -9,15 +9,20 @@ use structopt::StructOpt;
 
 pub fn run() {
     let opts = Config::from_args();
-    println!("ALPC");
-    println!("{:?}", constants::get_terms());
-    println!("{:?}", constants::get_numbers());
+
+    if opts.verbose {
+        println!("ALPC");
+        println!("{:?}", constants::get_terms());
+        println!("{:?}", constants::get_numbers());
+    }
 
     let mut input_str = String::new();
 
     stdin().read_line(&mut input_str).unwrap();
 
-    println!("Converting: {}", input_str);
+    if opts.verbose {
+        println!("Converting: {}", input_str);
+    }
 
     if opts.lowercase {
         input_str = input_str.to_ascii_uppercase();

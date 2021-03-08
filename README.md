@@ -21,7 +21,7 @@ Also, running `alpc` will provide a input prompt.
 - Convert A..Z to ALPHA..ZULU
 - Convert 0..9 to ZERO..NINER
 - Convert only Uppercase letters to phonetics. (`-l` to convert lowercase as well)
+- Clean output (Command line flag to add verbosity)
 
 ## TODO
-- Cleaner output. (Command line flag to add verbosity)
-- Man page and/or `--help` argument.
+- Man page
