@@ -1,9 +1,14 @@
+mod config;
 mod constants;
 
+use config::Config;
 use constants::*;
 use std::io::stdin;
 
+use structopt::StructOpt;
+
 pub fn run() {
+    let opts = Config::from_args();
     println!("ALPC");
     println!("{:?}", constants::get_terms());
     println!("{:?}", constants::get_numbers());
@@ -13,6 +18,10 @@ pub fn run() {
     stdin().read_line(&mut input_str).unwrap();
 
     println!("Converting: {}", input_str);
+
+    if opts.lowercase {
+        input_str = input_str.to_ascii_uppercase();
+    }
 
     let result = parse(input_str);
 
