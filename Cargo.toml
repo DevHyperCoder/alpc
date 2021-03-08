@@ -1,6 +1,6 @@
 [package]
 name = "alpc"
-version = "0.0.2"
+version = "1.0.0"
 authors = ["DevHyperCoder <arduinoleo88@gmail.com>"]
 edition = "2018"
 description = "Aviation Language Phonetic Converter"
