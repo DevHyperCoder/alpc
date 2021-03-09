@@ -7,7 +7,8 @@ Aviation Language Phonetic Converter is a simple Rust CLI for converting letters
 - Clone the repo: `git clone https://github.com/DevHyperCoder/alpc/`
 - Run the program: `cargo run`
 
-It will be made available in different Linux package repos soon.
+**Arch Linux**
+`alpc` is available in the AUR  `alpc-git`
 
 ## Usage
 
